@@ -4,7 +4,11 @@ export interface HttpResponse<T> { //<T> Genérico
 }
 
 export interface HttpRequest<B> {
-    params?: B;
-    header?: B;
+    params?: any;
+    header?: any;
     body?: B;
+}
+
+export interface IController {
+    handle(httpRequest: HttpRequest<unknown>): Promise<HttpResponse<unknown>>
 }

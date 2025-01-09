@@ -1,7 +1,7 @@
-import { HttpResponse } from "../protocols";
-import { IGetUsersController, IGetUsersRepository } from "./protocols";
+import { IController } from "../protocols";
+import { IGetUsersRepository } from "./protocols";
 
-export class GetUsersControllers implements IGetUsersController {
+export class GetUsersControllers implements IController {
 
     constructor(private readonly getUsersRepository: IGetUsersRepository) {}
         
