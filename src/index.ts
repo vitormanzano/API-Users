@@ -15,6 +15,10 @@ const main = async () => {
 
     app.use(express.json());
 
+    app.get("/", (req, res) => {
+        res.send("Aplicação rodando!");
+    })
+
     app.get("/users", async  (req, res) => {
         const mongoGetUsersRepository = new MongoGetUsersRepository();
     
