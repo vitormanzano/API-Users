@@ -4,7 +4,10 @@
   "description": "API | Praticando SOLID",
   "main": "index.js",
   "scripts": {
-    "start:watch": "tsx watch --env-file=.env  src/index.ts"
+    "start:watch": "tsx watch --env-file=.env  src/index.ts",
+    "start": "node build/index.js",
+    "build": "tsc --project tsconfig.json"
+
   },
   "keywords": [],
   "author": "",
