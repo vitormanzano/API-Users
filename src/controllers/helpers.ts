@@ -21,9 +21,9 @@ export const created = <T>(body: any): HttpResponse<T> => {
     };
 };
 
-export const serverError = (erro: string): HttpResponse<string> => {
+export const serverError = (): HttpResponse<string> => {
     return {
         statusCode: HttpStatusCode.SERVER_ERROR,
-        body: "Something went wrong... \n " + erro,
+        body: "Something went wrong... ",
     };
 };
