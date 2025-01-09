@@ -14,8 +14,9 @@ export class GetUsersControllers implements IController {
             return ok<User[]>(users);
         }
 
-        catch (error) {
-            return serverError(error as string);
+        catch (ex) {
+            const message = (ex as Error).message;
+            return serverError(message);
         }
     }
 }
