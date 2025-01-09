@@ -4,13 +4,15 @@
   "description": "API | Praticando SOLID",
   "main": "index.js",
   "scripts": {
-    "start:watch": "tsx watch src/index.ts"
+    "start:watch": "tsx watch --env-file=.env  src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
     "eslint": "^9.17.0",
     "eslint-config-prettier": "^9.1.0",
     "globals": "^15.14.0",
@@ -22,5 +24,8 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.19.1"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }
