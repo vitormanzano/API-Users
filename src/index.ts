@@ -6,6 +6,8 @@ import { MongoCreateUserRepository } from './repositories/create-user/mongo-crea
 import { CreateUserController } from './controllers/create-user/create-user';
 import { MongoUpdateUserRepository } from './repositories/update-user/mongo-update-user';
 import { UpdateUserController } from './controllers/update-user/update-user';
+import { MongoDeleteuserRepository } from './repositories/delete-user/mongo-delete-user';
+import { DeleteUserController } from './controllers/delete-user/delete-user';
 
 const main = async () => {
     const app = express();
@@ -31,7 +33,7 @@ const main = async () => {
         const response = await createUserController.handle({body: req.body});
 
         res.send(response.body).status(response.statusCode);
-    })
+    });
 
     app.patch('/users/:id', async (req, res) => {
         const mongoUpdateUserRepository = new MongoUpdateUserRepository();
@@ -43,7 +45,19 @@ const main = async () => {
             params: req.params
         });
         res.send(response.body).status(response.statusCode);
-    })
+    });
+
+    app.delete('/users/:id', async (req, res) => {
+        const mongoDeleteUserRepository = new MongoDeleteuserRepository();
+
+        const deleteUserController = new DeleteUserController(mongoDeleteUserRepository);
+
+        const response = await deleteUserController.handle({
+            params: req.params
+        });
+        res.send(response.body).status(response.statusCode);
+    });
+    
     
     const port = process.env.PORT;
 
