@@ -15,7 +15,7 @@ export class GetUsersControllers implements IController {
         }
 
         catch (error) {
-            return serverError();
+            return serverError(error as string);
         }
     }
 }
