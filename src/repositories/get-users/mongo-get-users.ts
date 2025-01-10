@@ -6,7 +6,7 @@ import { MongoUser } from "../mongo-protocols";
 export class MongoGetUsersRepository implements IGetUsersRepository {
     async getUsers(): Promise<User[]> {
         const users = await MongoClient.db.
-        collection<MongoUser >('users').    //Meio que remove a propriedade da interface o Omit
+        collection<MongoUser>('users').    //Meio que remove a propriedade da interface o Omit
         find({}).
         toArray();
 

@@ -5,7 +5,7 @@ export const MongoClient = {
     db: undefined as unknown as Db,
 
     async connect(): Promise<void> {
-        const url = process.env.MONGODB_URL!;
+        const url = "mongodb+srv://root:123@cluster0.kfffe.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" //process.env.MONGODB_URL!;
         const username = process.env.MONGODB_USERNAME
         const password = process.env.MONGODB_PASSWORD
 
