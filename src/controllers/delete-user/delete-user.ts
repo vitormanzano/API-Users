@@ -18,9 +18,9 @@ export class DeleteUserController implements IController {
 
             return ok<User>(user);
         } 
+
         catch (error) {
             return serverError();
         }
-        
     }
 }

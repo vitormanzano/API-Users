@@ -8,16 +8,14 @@ export class GetUsersControllers implements IController {
     constructor(private readonly getUsersRepository: IGetUsersRepository) {}
         
     async handle(): Promise<HttpResponse<User[] | string>> {
+        
         try {
             const users = await this.getUsersRepository.getUsers();
-            console.log("AQUI");
             return ok<User[]>(users);
         }
 
         catch (ex) {
-
             const message = (ex as Error).message;
-            console.log(message);
             return serverErrorString(message);
         }
     }

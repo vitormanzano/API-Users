@@ -5,9 +5,7 @@ import { CreateUserParams, ICreateUserRepository } from "./protocols";
 import validator from 'validator'
 
 export class CreateUserController implements IController {
-    constructor(private readonly createUserRepository: ICreateUserRepository) {
-
-    }
+    constructor(private readonly createUserRepository: ICreateUserRepository) {}
 
     async handle(httpRequest: HttpRequest<CreateUserParams>): Promise<HttpResponse<User | string>> {
         try {
@@ -26,7 +24,6 @@ export class CreateUserController implements IController {
                 return badRequest("E-mail is invalid")
             }
                 
-
             const user = await this.createUserRepository.createUser(httpRequest.body!);
 
             return created<User>(user);
@@ -34,7 +31,6 @@ export class CreateUserController implements IController {
 
         catch (error) {
             return serverError();
-        }
-        
+        };
     }
 }
