@@ -27,3 +27,10 @@ export const serverError = (): HttpResponse<string> => {
         body: "Something went wrong... ",
     };
 };
+
+export const serverErrorString = (message: string): HttpResponse<string> => {
+    return {
+        statusCode: HttpStatusCode.SERVER_ERROR,
+        body: "Something went wrong... ",
+    };
+};
