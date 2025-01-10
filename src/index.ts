@@ -17,7 +17,7 @@ const main = async () => {
 
     app.get("/", (req, res) => {
         res.send("Aplicação rodando!");
-    })
+    });
 
     app.get("/users", async  (req, res) => {
         const mongoGetUsersRepository = new MongoGetUsersRepository();
@@ -61,7 +61,6 @@ const main = async () => {
         });
         res.send(response.body).status(response.statusCode);
     });
-    
     
     const port = process.env.PORT;
 
